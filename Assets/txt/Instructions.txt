@@ -1,0 +1,16 @@
+A pesky target has invaded this Unity project. Luckily, this novelty cannon just arrived. Your task is to create controls to aim the cannon, and fire hitting the target. A successful hit should give a visual indication (eg, turns green, disables, etc).
+
+The cannonball prefab should be fired from the cannon. It will be effected by gravity so the firing should be a physics interaction.
+
+ Bonus marks:
+1. Spawn multiple targets at runtime (extra marks for including a points system).
+2. Implement a 30 second timer with a visual indicator on time left (e.g UI with countdown).
+3. Any extra visual feedback (e.g firing effects from the cannon).
+4. Audio implementing (using free assets or creating assets).
+
+
+We are looking for clean, robust, and self documenting code. You may be asked to talk through your solution.
+
+
+
+Branch: main
