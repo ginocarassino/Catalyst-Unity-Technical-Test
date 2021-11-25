@@ -14,3 +14,7 @@ We are looking for clean, robust, and self documenting code. You may be asked to
 
 
 Branch: main
+
+BUTTONS: https://assetstore.unity.com/packages/2d/gui/icons/simple-button-set-01-153979
+CANNON SOUND: https://www.zapsplat.com/?s=cannon&post_type=music&sound-effect-category-id=
+FIRE PARTICLE: https://assetstore.unity.com/packages/vfx/particles/fire-explosions/fx-fire-free-21587
