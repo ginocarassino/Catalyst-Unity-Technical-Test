@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class ShootCannon : MonoBehaviour
 {
+    [Header("Controllers")]
+    private MainController main_ctr;
+
     [Header("Transforms")]
     [SerializeField] private Transform cannonPitch;
     [SerializeField] private float rotationSpeed;
@@ -17,13 +20,17 @@ public class ShootCannon : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private Slider forceSlider;
+    [SerializeField] private Text forceText;
 
-    [Header("Sounds")]
-    [SerializeField] private AudioSource CannonSound;
+    private void Start()
+    {
+        main_ctr = (MainController)FindObjectOfType(typeof(MainController));
+    }
 
     void Update()
     {
         forceSpeed = forceSlider.value;
+        forceText.text = forceSlider.value.ToString("000");
 
         if (Input.GetKey(KeyCode.A))
         {
@@ -47,19 +54,23 @@ public class ShootCannon : MonoBehaviour
         }
     }
 
+    //Shoots the bullet
     public void ShootBullet()
     {
-        CannonSound.Play(0);
-        explosionCannon.Play();
+        if (forceSpeed > 0)
+        {
+            main_ctr.CannonSound.Play(0);
+            explosionCannon.Play();
 
-        GameObject bull = Instantiate(bullet, spawnPoint.position, bullet.transform.rotation);
-        Rigidbody rig = bull.GetComponent<Rigidbody>();
+            GameObject bull = Instantiate(bullet, spawnPoint.position, bullet.transform.rotation);
+            Rigidbody rig = bull.GetComponent<Rigidbody>();
 
-        rig.AddForce(spawnPoint.right * forceSpeed, ForceMode.Impulse);
+            rig.AddForce(spawnPoint.right * forceSpeed, ForceMode.Impulse);
+        }
     }
 
     private void RotateCannon(Transform _transform, Vector3 _rotation)
     {
-        _transform.Rotate(_rotation * rotationSpeed * Time.deltaTime);
+        _transform.Rotate(_rotation * rotationSpeed * Time.deltaTime); //Rotate cannon in the vector direction pressed
     }
 }
